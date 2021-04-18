@@ -1,0 +1,40 @@
+<%- include("../partials/header") %>
+
+
+<section class="cards-wrapper">
+  
+  <% for(var i=0 ; i < posts.length ; i++) { %>
+    <div class="card-grid-space">
+      <a class="card" style="--bg-img: url(<%=posts[i].image%>)">
+        <div>
+          <p><%=posts[i].body%></p>
+          <div class="tags">
+            <div class="tag"><%=posts[i].tag%></div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+  <% } %>
+
+</section>
+
+
+  <div  id="sizeOfloginAndRig" class="container">
+    <form action="/profile/<%=connectOfUser%>" method="POST">
+      <div class="row col-xs-12">
+          
+              <input class="form-control" type="text" name="image" placeholder="Image URL">
+
+              <textarea class="form-control" type="text" placeholder="Text" name="text" rows="4" cols="50"></textarea>
+
+              <input class="form-control" type="text" name="tag" placeholder="Tag someone from the community @">
+
+              <button class="btn btn-block btn-success "><i class="fas fa-paper-plane"></i> Send</button>
+      </div>
+    </form>
+  </div>
+
+
+
+<%- include("../partials/footer") %>

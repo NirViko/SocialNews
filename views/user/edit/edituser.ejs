@@ -1,0 +1,104 @@
+<%- include("../../partials/header") %>
+
+<script>
+</script>
+
+<ol class="breadcrumb">
+    <li><a id="p1button" href="#">Edit user information</a></li>
+
+
+
+
+
+    <li></li><a id="p2button" href="#">Change Password</a>
+
+
+
+    </li>
+</ol>
+
+<div id="infoclick" class="container sizeOfloginAndRig">
+    <h2>Edit user information</h2>
+
+    <form action="/register" method="POST">
+        <div id="click1">
+            <div class="input-group col-xs-4 col-sm-4 col-md-8">
+                <input class="form-control" type="text" name="username" placeholder="E-Mail">
+            </div>
+            
+            <div class="input-group col-xs-4 col-sm-4 col-md-8">
+                <input class="form-control" type="text" name="fullname" placeholder="Full Name">
+            </div>
+            
+
+            <div class="input-group col-xs-4 col-sm-4 col-md-8">
+                <input class="form-control" type="date" name="birthday">
+            </div>
+        </div>
+
+        <div id="click1">
+            <div class="input-group col-xs-4 col-sm-4 col-md-8">
+                <input class="form-control" type="password" name="password" placeholder="Password">
+            </div>
+        </div>
+
+            <button  class="regi-login btn btn-success col-xs-4 col-sm-4 col-md-8">Submit</button>
+
+    </form>
+
+</div>
+
+
+<div id="passwordclick" class="container sizeOfloginAndRig">
+    <h2>Change Password</h2>
+ 
+    <form action="/register" method="POST">
+
+
+        <div id="click1">
+            <div class="input-group col-xs-4 col-sm-4 col-md-8">
+                <input class="form-control" type="password" name="password" placeholder="Password">
+            </div>
+        </div>
+
+            <button  class="regi-login btn btn-success col-xs-4 col-sm-4 col-md-8">Submit</button>
+    </form>
+</div>
+
+<script>
+    $(".sizeOfloginAndRig").hide();
+
+    $("#p1button").mouseenter(function(){
+        $(this).css("font-weight","bold");
+    })
+
+    $("#p1button").mouseleave(function(){
+        $(this).css("font-weight","normal");
+    })
+
+
+    $("#p2button").mouseenter(function(){
+        $(this).css("font-weight","bold");
+    })
+
+    $("#p2button").mouseleave(function(){
+        $(this).css("font-weight","normal");
+    })
+
+
+    $("#p1button").click(function(){
+        
+        $("#passwordclick").hide();
+        $("#infoclick").show();
+    })
+
+    $("#p2button").click(function(){
+        $("#infoclick").hide();
+        $("#passwordclick").show();
+    })
+
+        
+</script> 
+
+
+<%- include("../../partials/footer") %>

@@ -1,0 +1,11 @@
+<%- include("../partials/header") %>
+
+    <div class="container">
+        <img src="<%=thisPost.image%>">
+        <p><%=thisPost.body%></p>
+        <p><%=thisPost.tag%></p>
+        
+        <a href="/profile/<%=thisPost.author.id%>/<%=thisPost.id%>/edit">Edit</a>
+    </div>
+
+<%- include("../partials/footer") %>

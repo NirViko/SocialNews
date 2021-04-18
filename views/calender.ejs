@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+        crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<style>
+body
+{
+  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  background-color: white;
+  color:black;
+  padding:0;
+  padding-left: 1rem;
+  margin:0;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+h1{
+  margin:0;
+  margin-top: 0.5rem;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td{
+  position:relative;
+  text-align: left;
+  padding: 0;
+  vertical-align: top;
+}
+
+td:not(:first-child){
+  border: 1px solid #404040;
+  height: calc(180vh/5);
+}
+
+td:nth-child(2), td:nth-child(8){
+  background-color: white;
+}
+
+th:nth-child(2), th:nth-child(8){
+  color: black; 
+}
+
+.year{
+  font-weight:lighter;
+}
+
+.weekday{
+  font-weight:lighter;
+  padding:0.5rem;
+}
+
+.hour{
+  font-size: 0.75rem;
+  color: #555;
+}
+
+.event{
+  position:absolute;
+  top: 0;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  background-color: #05bff3;
+  font-size: 0.75rem;
+  padding:0.5rem;
+  border-left: 3px solid #0e0f0f;
+  overflow: visible;
+  overflow:hidden; 
+  white-space:nowrap; 
+  text-overflow: ellipsis;
+  border-radius: 8px;
+}
+
+.event-title {
+  font-weight:bold;
+  color: black;
+}
+
+.today-date{
+  background-color: #ff443b;
+  color: #1d1e20;
+  border-radius: 50%;
+  padding: 5px;
+  display: inline-block;
+}
+
+.now{
+  display:block;
+  z-index:3;
+  position: absolute;
+  font-size: 0.75rem;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  color: #ff443b;
+  border-top: 0.5px solid #ff443b;
+}
+.fa-arrow-left{
+    color:black;
+    margin-bottom: 10px;
+    margin-right: 5px;
+}
+.fa-arrow-right{
+    color:black;
+    margin-bottom: 10px;
+    margin-left: 5px;
+}
+#resizeAllTable
+{
+    margin-top: 100px;
+}
+</style>
+</head>
+
+<body>
+
+
+
+
+    
+<div id="resizeAllTable">
+<%  var timeNow = new Date(); %>
+<%  var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]; %>
+<%  var days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sun"]%>
+<h1><%=months[timeNow.getMonth()];%> <span class="year"><%=timeNow.getFullYear();%></span></h1>
+
+
+<table class="week">
+    <tr>
+      <th></th>
+    <% for(var i = 0 ; i < 7 ; i ++) { %>
+      <%timeNow.setDate(new Date().getDate()+i)%>
+      <% if(i == 0) {%>
+      <th class="weekday"><a onClick="change()" class="changeDates"><i class="fas fa-arrow-left"></i></a><%=" "+days[timeNow.getDay()]+" "+timeNow.getDate()%></th>
+      <% } else if (i == 6){%>
+      <th class="weekday"><%=days[timeNow.getDay()]+" "+timeNow.getDate()%><a onClick="change()" class="changeDates"><i class="fas fa-arrow-right"></i></a></th>
+      <% } else { %>
+      <th class="weekday"><%=days[timeNow.getDay()]+" "+timeNow.getDate()%></th>
+      <% }%>
+    <% } %>
+    
+    </tr>
+    
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+        <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+        <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>
+        <div class="event"><span class="event-title">Tax Return</span></div>
+      </td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+        <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+        <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+        <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+        <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    </tr>
+    <tr>
+        <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    </tr>
+    <tr>
+        <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+</table>
+</div>
+
+    </body>
+</html>

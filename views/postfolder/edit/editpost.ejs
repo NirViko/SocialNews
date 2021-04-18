@@ -1,0 +1,15 @@
+<%- include("../../partials/header") %>
+<div  id="sizeOfloginAndRig" class="container">
+    <form action="/profile/<%=thisPost.author.id%>/<%=thisPost.id%>/edit" method="POST">
+      <div class="row col-xs-12">
+              <input class="form-control" type="text" name="image" placeholder="Image URL" value="<%=thisPost.image%>">
+
+              <textarea class="form-control" type="text" placeholder="Text" name="text" rows="4" cols="50"><%=thisPost.body%></textarea>
+
+              <input class="form-control" type="text" name="tag" placeholder="Tag someone from the community @" value="<%=thisPost.tag%>">
+
+              <button class="btn btn-block btn-success "><i class="far fa-edit"></i> Send</button>
+      </div>
+    </form>
+  </div>
+<%- include("../../partials/footer") %>
